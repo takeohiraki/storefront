@@ -87,14 +87,14 @@ function checkQuant(id, quantDemanded) {
       console.log("order placed")
       new_quant = quant_stock - quantDemanded;
       console.log(res[0].price)
-      order(id, new_quant, res[0].price);
+      order(id, new_quant, res[0].price, quantDemanded);
     }
     
   });
 }
 
 
-function order(id, new_quant, price) {
+function order(id, new_quant, price, quantDemanded) {
   console.log("Creating order\n");
   var query = connection.query(
     "UPDATE products SET ? WHERE ?",
@@ -107,12 +107,12 @@ function order(id, new_quant, price) {
       }
     ],
     function(err, res) {
-      console.log("Your purchase cost: $" + price)
+      console.log("Success! Your purchase cost: $" + Number(price) * Number(quantDemanded));
       runBuy();
     }
   );
   // logs the actual query being run
-  console.log(query.sql);
+  // console.log(query.sql);
 
 }
 
