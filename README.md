@@ -37,3 +37,7 @@
   <li> add to inventory </li>
   <li> Add new product </li>
 </ul>
+
+<br>
+<br>
+<a href ="https://youtu.be/b3TWPIZiSNc"> Visit this link to watch it in action!</a>
